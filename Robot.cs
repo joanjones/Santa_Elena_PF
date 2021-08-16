@@ -18,14 +18,14 @@ namespace RealPF
         public Robot()
         {
             this.INITIAL_PARTICLE_RANGE = 150;
-            this.X = MyGlobals.random_num.Next(0, 700);
-            this.Y = MyGlobals.random_num.Next(0, 900);
+            this.X = MyGlobals.random_num.Next(-INITIAL_PARTICLE_RANGE, INITIAL_PARTICLE_RANGE);
+            this.Y = MyGlobals.random_num.Next(-INITIAL_PARTICLE_RANGE, INITIAL_PARTICLE_RANGE);
             this.Z = MyGlobals.random_num.Next(-INITIAL_PARTICLE_RANGE, INITIAL_PARTICLE_RANGE);
             this.V = MyGlobals.random_num.Next(0, 5);
             this.THETA = MyGlobals.random_num.NextDouble() * (2 * Math.PI) + -Math.PI;
             this.robot_list_x = new List<double>();
             this.robot_list_y = new List<double>();
-
+            
         }
 
         public void create_robot_list()

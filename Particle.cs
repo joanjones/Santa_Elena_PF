@@ -17,8 +17,8 @@ namespace RealPF
         {
             // Class Members
             this.INITIAL_PARTICLE_RANGE = 150;
-            this.X = MyGlobals.random_num.Next(0, 700);
-            this.Y = MyGlobals.random_num.Next(0, 900);
+            this.X = MyGlobals.random_num.Next(-INITIAL_PARTICLE_RANGE, INITIAL_PARTICLE_RANGE);
+            this.Y = MyGlobals.random_num.Next(-INITIAL_PARTICLE_RANGE, INITIAL_PARTICLE_RANGE);
             //this.X = 45;
             //this.Y = 45;
             this.Z = MyGlobals.random_num.Next(-INITIAL_PARTICLE_RANGE, INITIAL_PARTICLE_RANGE);
@@ -105,7 +105,7 @@ namespace RealPF
              * they are multiplied together to get the final weight */
 
             double E = 2.71828;
-            double SIGMA_RANGE = 30.0;
+            double SIGMA_RANGE = 10.0;
             double DENOMINATOR2 = (Math.Pow(SIGMA_RANGE, 2));
             double dRange = Math.Pow(particle_range1 - real_range1, 2);
             double function_range1 = .001 + Math.Pow(E, -dRange / DENOMINATOR2);

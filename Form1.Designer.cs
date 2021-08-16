@@ -54,17 +54,15 @@ namespace RealPF
             // 
             // chart1
             // 
-            this.chart1.BackColor = System.Drawing.Color.Transparent;
-            this.chart1.BackImage = "C:\\Users\\lairi\\Downloads\\IMG-0806.JPG";
+            this.chart1.BackImage = "C:\\Users\\lairi\\Downloads\\IMG_0810.jpg";
             this.chart1.BorderlineColor = System.Drawing.SystemColors.Window;
-            chartArea1.AxisX.LineColor = System.Drawing.Color.White;
-            chartArea1.AxisX.Maximum = 700D;
-            chartArea1.AxisX.Minimum = 0D;
+            chartArea1.AxisX.Maximum = 150D;
+            chartArea1.AxisX.Minimum = -150D;
             chartArea1.AxisX2.LineColor = System.Drawing.Color.White;
             chartArea1.AxisX2.TitleForeColor = System.Drawing.Color.White;
-            chartArea1.AxisY.LineColor = System.Drawing.Color.White;
-            chartArea1.AxisY.Maximum = 900D;
-            chartArea1.AxisY.Minimum = 0D;
+            chartArea1.AxisY.Maximum = 150D;
+            chartArea1.AxisY.Minimum = -150D;
+            chartArea1.AxisY2.TitleAlignment = System.Drawing.StringAlignment.Far;
             chartArea1.BackColor = System.Drawing.Color.Transparent;
             chartArea1.BackImageTransparentColor = System.Drawing.Color.Transparent;
             chartArea1.BackSecondaryColor = System.Drawing.Color.Transparent;
@@ -72,9 +70,11 @@ namespace RealPF
             chartArea1.Name = "ChartArea1";
             chartArea1.ShadowColor = System.Drawing.Color.Gray;
             this.chart1.ChartAreas.Add(chartArea1);
+            legend1.AutoFitMinFontSize = 12;
             legend1.BackColor = System.Drawing.Color.Transparent;
             legend1.BorderColor = System.Drawing.Color.Transparent;
-            legend1.ForeColor = System.Drawing.Color.White;
+            legend1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            legend1.IsTextAutoFit = false;
             legend1.Name = "Legend1";
             legend1.TitleForeColor = System.Drawing.Color.Transparent;
             legend1.TitleSeparatorColor = System.Drawing.Color.Transparent;
@@ -84,6 +84,7 @@ namespace RealPF
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
             series1.Color = System.Drawing.Color.Aqua;
+            series1.LabelBackColor = System.Drawing.Color.Black;
             series1.Legend = "Legend1";
             series1.Name = "Weight1";
             series2.ChartArea = "ChartArea1";
@@ -115,26 +116,28 @@ namespace RealPF
             series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
             series7.Color = System.Drawing.Color.Black;
             series7.Legend = "Legend1";
-            series7.MarkerSize = 7;
+            series7.MarkerSize = 9;
             series7.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Triangle;
             series7.Name = "Shark";
             series8.ChartArea = "ChartArea1";
             series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
             series8.Color = System.Drawing.Color.Black;
             series8.Legend = "Legend1";
-            series8.MarkerSize = 7;
+            series8.MarkerSize = 9;
             series8.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Triangle;
             series8.Name = "Shark2";
             series9.ChartArea = "ChartArea1";
             series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
             series9.Color = System.Drawing.Color.Red;
             series9.Legend = "Legend1";
+            series9.MarkerSize = 8;
             series9.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Cross;
             series9.Name = "AUV2";
             series10.ChartArea = "ChartArea1";
             series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
             series10.Color = System.Drawing.Color.Red;
             series10.Legend = "Legend1";
+            series10.MarkerSize = 8;
             series10.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Cross;
             series10.Name = "AUV1";
             this.chart1.Series.Add(series1);
@@ -147,40 +150,52 @@ namespace RealPF
             this.chart1.Series.Add(series8);
             this.chart1.Series.Add(series9);
             this.chart1.Series.Add(series10);
-            this.chart1.Size = new System.Drawing.Size(405, 279);
+            this.chart1.Size = new System.Drawing.Size(454, 300);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             this.chart1.Click += new System.EventHandler(this.chart1_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(341, 216);
+            this.button1.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            this.button1.Location = new System.Drawing.Point(348, 288);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(66, 23);
+            this.button1.Size = new System.Drawing.Size(75, 31);
             this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
+            this.button1.Text = "start";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // chart2
             // 
             this.chart2.AntiAliasing = System.Windows.Forms.DataVisualization.Charting.AntiAliasingStyles.Graphics;
+            chartArea2.AxisX.Maximum = 160D;
+            chartArea2.AxisX.Minimum = 0D;
+            chartArea2.AxisY.Maximum = 100D;
+            chartArea2.AxisY.Minimum = 0D;
             chartArea2.Name = "ChartArea1";
             this.chart2.ChartAreas.Add(chartArea2);
+            legend2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            legend2.IsTextAutoFit = false;
             legend2.Name = "Legend1";
             this.chart2.Legends.Add(legend2);
-            this.chart2.Location = new System.Drawing.Point(451, 50);
+            this.chart2.Location = new System.Drawing.Point(485, 50);
             this.chart2.Name = "chart2";
             series11.BackImageWrapMode = System.Windows.Forms.DataVisualization.Charting.ChartImageWrapMode.TileFlipX;
+            series11.BorderWidth = 3;
             series11.ChartArea = "ChartArea1";
             series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
             series11.Color = System.Drawing.Color.Blue;
             series11.Legend = "Legend1";
+            series11.MarkerSize = 10;
             series11.Name = "RangeError1";
+            series12.BorderWidth = 3;
             series12.ChartArea = "ChartArea1";
             series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
             series12.Color = System.Drawing.Color.Purple;
+            series12.IsXValueIndexed = true;
             series12.Legend = "Legend1";
+            series12.MarkerSize = 10;
             series12.Name = "RangeError2";
             this.chart2.Series.Add(series11);
             this.chart2.Series.Add(series12);
@@ -193,7 +208,7 @@ namespace RealPF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(944, 450);
+            this.ClientSize = new System.Drawing.Size(1051, 450);
             this.Controls.Add(this.chart2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.chart1);
