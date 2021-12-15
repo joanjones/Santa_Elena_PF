@@ -73,6 +73,7 @@ namespace RealPF
         }
         public void update_robot_position()
         {
+            /*
             // should update the sharks position after 
             double RANDOM_VELOCITY = 2;
             double RANDOM_THETA = Math.PI / 2;
@@ -88,6 +89,7 @@ namespace RealPF
             // change x & y coordinates to match
             this.X += this.V * Math.Cos(this.THETA);
             this.Y += this.V * Math.Sin(this.THETA);
+            */
         }
 
     }

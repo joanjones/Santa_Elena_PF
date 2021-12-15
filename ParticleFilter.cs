@@ -21,6 +21,7 @@ namespace RealPF
         public List<double> w3_list_y;
 
         public List<double> errorList;
+        public List<double> regionalEntropy;
 
         public int sharkNumber;
         public int robotNumber;
@@ -203,6 +204,194 @@ namespace RealPF
             mean_particle.Add(particle_mean_x);
             mean_particle.Add(particle_mean_y);
             return mean_particle;
+        }
+         public List<double> calculate_entropy()
+        {
+            /*maybe forloop going through particlelist if x and y between certain range
+             add to regional list
+             length of regionlist=omega
+             for each region list
+                create entropy list
+                s=kTln(omega) */
+            List<double> region1List = new List<double>();
+            List<double> region2List = new List<double>();
+            List<double> region3List = new List<double>();
+            List<double> region4List = new List<double>();
+            List<double> region5List = new List<double>();
+            List<double> region6List = new List<double>();
+            List<double> region7List = new List<double>();
+            List<double> region8List = new List<double>();
+            List<double> region9List = new List<double>();
+            regionalEntropy = new List<double>(); 
+           
+            
+            for (int i = 0; i < NUMBER_OF_PARTICLES; ++i)
+            {
+                if (particleList[i].X < INITIAL_PARTICLE_RANGE/3 && particleList[i].Y < INITIAL_PARTICLE_RANGE/3)
+                {
+                    region1List.Add(particleList[i].W);
+                }
+                if (particleList[i].X < INITIAL_PARTICLE_RANGE/3 && particleList[i].Y < 2*INITIAL_PARTICLE_RANGE/3)
+                {
+                    region2List.Add(particleList[i].W);
+                }
+                if (particleList[i].X < INITIAL_PARTICLE_RANGE/3 && particleList[i].Y < INITIAL_PARTICLE_RANGE)
+                {
+                    region3List.Add(particleList[i].W);
+                }
+                if (particleList[i].X < 2*INITIAL_PARTICLE_RANGE/3 && particleList[i].Y < INITIAL_PARTICLE_RANGE/3)
+                {
+                    region4List.Add(particleList[i].W);
+                }
+                if (particleList[i].X < 2*INITIAL_PARTICLE_RANGE/3 && particleList[i].Y < 2*INITIAL_PARTICLE_RANGE/3)
+                {
+                    region5List.Add(particleList[i].W);
+                }
+                if (particleList[i].X < 2*INITIAL_PARTICLE_RANGE && particleList[i].Y < INITIAL_PARTICLE_RANGE)
+                {
+                    region6List.Add(particleList[i].W);
+                }
+                if (particleList[i].X < INITIAL_PARTICLE_RANGE && particleList[i].Y < INITIAL_PARTICLE_RANGE/3)
+                {
+                    region7List.Add(particleList[i].W);
+                }
+                if (particleList[i].X < INITIAL_PARTICLE_RANGE && particleList[i].Y < 2*INITIAL_PARTICLE_RANGE/3)
+                {
+                    region8List.Add(particleList[i].W);
+                }
+                if (particleList[i].X < INITIAL_PARTICLE_RANGE && particleList[i].Y < INITIAL_PARTICLE_RANGE)
+                {
+                    region9List.Add(particleList[i].W);
+                }
+                
+               /*
+                
+                if (particleList[i].X < INITIAL_PARTICLE_RANGE/3)
+                {
+                    if (particleList[i].Y < INITIAL_PARTICLE_RANGE/3)
+                    {
+                        Region1 += particleList[i].W;
+                    }
+                   if (particleList[i].Y < 2*INITIAL_PARTICLE_RANGE/3)
+                    {
+                        Region2 += particleList[i].W;
+                    } 
+                    if (particleList[i].Y < INITIAL_PARTICLE_RANGE)
+                    {
+                        Region3 += particleList[i].W;
+                    }
+                }
+                if (particleList[i].X < 2*INITIAL_PARTICLE_RANGE/3)
+                {
+                    if (particleList[i].Y < INITIAL_PARTICLE_RANGE/3)
+                    {
+                        
+                    }
+                   if (particleList[i].Y < 2*INITIAL_PARTICLE_RANGE/3)
+                    {
+                    } 
+                    if (particleList[i].Y < INITIAL_PARTICLE_RANGE)
+                    {
+                    }
+                }
+                if (particleList[i].X < INITIAL_PARTICLE_RANGE)
+                {
+                    if (particleList[i].Y < INITIAL_PARTICLE_RANGE/3)
+                    {
+                    }
+                   if (particleList[i].Y < 2*INITIAL_PARTICLE_RANGE/3)
+                    {
+                    } 
+                    if (particleList[i].Y < INITIAL_PARTICLE_RANGE)
+                    {
+                    }
+                }*/
+            }
+            /*
+            omegaList = new List<double>;
+            omegaList.Add(region1List.Count)
+            omegaList.Add(region2List.Count)
+            omegaList.Add(region3List.Count)
+            omegaList.Add(region4List.Count)
+            omegaList.Add(region5List.Count)
+            omegaList.Add(region6List.Count)
+            omegaList.Add(region7List.Count)
+            omegaList.Add(region8List.Count)
+            omegaList.Add(region9List.Count)
+            */
+            double Sregion1 = 0;
+            for (int i=0; i < region1List; ++i)
+            {
+                double k = 1.38*Math.Pow(10,-23);
+                double S = -k*region1List[i]*log(region1List[i])
+                Sregion1+=S;
+            }
+            regionalEntropy.Add(Sregion1)
+            double Sregion2 = 0;
+            for (int i=0; i < region2List; ++i)
+            {
+                double k = 1.38*Math.Pow(10,-23);
+                double S = -k*region2List[i]*log(region2List[i])
+                Sregion2+=S;
+            }
+            regionalEntropy.Add(Sregion2)
+            double Sregion3 = 0;
+            for (int i=0; i < region3List; ++i)
+            {
+                double k = 1.38*Math.Pow(10,-23);
+                double S = -k*region3List[i]*log(region3List[i])
+                Sregion3+=S;
+            }
+            regionalEntropy.Add(Sregion3)
+            double Sregion4 = 0;
+            for (int i=0; i < region4List; ++i)
+            {
+                double k = 1.38*Math.Pow(10,-23);
+                double S = -k*region4List[i]*log(region4List[i])
+                Sregion4+=S;
+            }
+            regionalEntropy.Add(Sregion4)
+            double Sregion5 = 0;
+            for (int i=0; i < region5List; ++i)
+            {
+                double k = 1.38*Math.Pow(10,-23);
+                double S = -k*region5List[i]*log(region5List[i])
+                Sregion5+=S;
+            }
+            regionalEntropy.Add(Sregion5)
+            double Sregion6 = 0;
+            for (int i=0; i < region6List; ++i)
+            {
+                double k = 1.38*Math.Pow(10,-23);
+                double S = -k*region6List[i]*log(region6List[i])
+                Sregion6+=S;
+            }
+            regionalEntropy.Add(Sregion6)
+            double Sregion7 = 0;
+            for (int i=0; i < region7List; ++i)
+            {
+                double k = 1.38*Math.Pow(10,-23);
+                double S = -k*region7List[i]*log(region7List[i])
+                Sregion7+=S;
+            }
+            regionalEntropy.Add(Sregion7)
+            double Sregion8 = 0;
+            for (int i=0; i < region8List; ++i)
+            {
+                double k = 1.38*Math.Pow(10,-23);
+                double S = -k*region8List[i]*log(region8List[i])
+                Sregion8+=S;
+            }
+            regionalEntropy.Add(Sregion8)
+            double Sregion9 = 0;
+            for (int i=0; i < region9List; ++i)
+            {
+                double k = 1.38*Math.Pow(10,-23);
+                double S = -k*region9List[i]*log(region9List[i])
+                Sregion9+=S;
+            }
+            this.regionalEntropy.Add(Sregion9)
+            return regionalEntropy;
         }
     }
 
